@@ -7,13 +7,11 @@ const strToComponents = cities => (
 	cities.map( city => <WeatherLocation city={city} />)
 );
 
-const LocationList = ({ cities }) => {
-	console.log(cities);
-	return (
+const LocationList = ({ cities }) => (
 	<div>
 		{ strToComponents(cities) }
-	</div>);
-}; 
+	</div>
+); 
 
 
 LocationList.protoTypes = {
