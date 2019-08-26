@@ -56,23 +56,20 @@ class WeatherLocation extends Component {
 
 	// this para cosas propias del componente
 
-	render() {
-	  console.log('render');
-	  const { city, data } = this.state; // destructuring
-	  return (
-  <div className="weatherLocationCont">
-            <Location city={city} />
-            {
-					data
-					  ? <WeatherData data={data} />
-					  : <CircularProgress size={50} />
-				}
-          </div>
-	  );
+	render = () => {
+		const { onWeatherLocationClick } = this.props; 
+		const { city, data } = this.state; // destructuring
+		return (
+			<div className="weatherLocationCont" onClick={onWeatherLocationClick}>
+				<Location city={city} />
+				{data ? <WeatherData data={data} /> : <CircularProgress size={50} />}
+			</div>
+		);
 	}
 }
 
 WeatherLocation.propTypes = {
   city: PropTypes.string.isRequired,
+  onWeatherLocationClick: PropTypes.func,
 };
 export default WeatherLocation;
